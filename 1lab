@@ -1,0 +1,37 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main (String []args)  {
+    System.out.println("Введите количество элементов строки :");
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    int[] arr = new int[n];
+    Random rnd = new Random();
+    System.out.println("Сгенерированные значения :");
+    for (int j = 0; j < n; j++){
+        arr[j] = rnd.nextInt(100);
+        System.out.print(arr[j] + " ");
+    }
+    System.out.println();
+    System.out.println("Отсортированный массив: ");
+    select_sort(arr);
+}
+
+    public static void select_sort(int[] array) {
+        for (int min = 0; min < array.length ; min++) {
+            int sss = min;
+            for (int i = min + 1; i < array.length ; i++) {
+                if (array[i] < array[sss]) {
+                    sss = i;
+                }
+            }
+            //swap
+            int buf = array[min];
+            array[min] = array[sss];
+            array[sss] = buf;
+            System.out.print(array[min] + " ");
+        }
+
+    }
+}
